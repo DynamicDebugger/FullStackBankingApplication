@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../images/unity-pay-logo.jpg">
+    <title>The bank UniPay</title>
+    <link rel="stylesheet" href="../../css/user/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex flex-col min-h-screen">
+        <!-- Navigation bar -->
+                <nav class="bg-pink-600 text-white py-4 px-8">
+                    <div class="container mx-auto flex justify-between items-center">
+                        <h1 id="dashboard" class="text-2xl font-semibold">Online Banking</h1>
+                        <ul class="flex space-x-4">
+                            <li><a id="accounts" class="hover:bg-pink-900">Accounts</a></li>
+                            <li><a id="history" class="hover:bg-pink-900">View History</a></li>
+                            <li><a id="transfer" class="hover:bg-pink-900">Transactions</a></li>
+                            <!-- Inside the navigation bar -->
+                            <li id="settingsLink" class="relative">
+                                <a href="#" class="hover:bg-pink-900">Settings</a>
+                                <ul id="dropdownMenu"
+                                    class="dropdown-menu absolute right-0 mt-2 text-pink-600 bg-white shadow-md rounded-md p-2 hidden">
+                                    <li id="profile" onclick="togglepopup()"><a>Profile</a></li>
+                                    <li id="logout"><a href="#">Logout</a></li>
+                                </ul>
+                            </li>
+                
+                        </ul>
+                    </div>
+                </nav>
+
+        <div class="flex justify-center">
+            <div class="max-w-3xl w-full">
+                <h2 class="text-2xl font-bold mb-4 text-center">User Accounts</h2>
+
+<!-- transition ease-in-out delay-150 w-full bg-pink-600 hover:translate-y-1 hover:scale-110 hover:bg-pink-900 duration-300
+text-white rounded-lg py-2 -->
+                <!-- Account 1 -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-4">
+                    <h3 class="text-lg font-bold mb-2">SBI</h3>
+                    <p class="text-gray-600 mb-2">CIF ID: 1234567890</p>
+                    <p class="text-gray-600 mb-2">Bank Branch: XYZ Branch</p>
+                    <p class="text-gray-600 mb-2">Account Number: 1234567890</p>
+                    <button class="bg-green-400 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mr-2">View
+                        Balance</button>
+                    <button class="transfers bg-pink-500 hover:bg-pink-900 text-white font-bold py-2 px-4 rounded">Do
+                        Transaction</button>
+                </div>
+
+                <!-- Account 2 -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-4">
+                    <h3 class="text-lg font-bold mb-2">AXIS</h3>
+                    <p class="text-gray-600 mb-2">CIF ID: 0987654321</p>
+                    <p class="text-gray-600 mb-2">Bank Branch: ABC Branch</p>
+                    <p class="text-gray-600 mb-2">Account Number: 0987654321</p>
+                    <button class=" bg-green-400 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mr-2">View
+                        Balance</button>
+                    <button class="transfers bg-pink-500 hover:bg-pink-900 text-white font-bold py-2 px-4 rounded">Do
+                        Transaction</button>
+                </div>
+
+                <!-- Account 3 -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-4">
+                    <h3 class="text-lg font-bold mb-2">HDFC</h3>
+                    <p class="text-gray-600 mb-2">CIF ID: 2468013579</p>
+                    <p class="text-gray-600 mb-2">Bank Branch: PQR Branch</p>
+                    <p class="text-gray-600 mb-2">Account Number: 2468013579</p>
+                    <button class=" bg-green-400 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mr-2">View
+                        Balance</button>
+                    <button class="transfers bg-pink-500 hover:bg-pink-900 text-white font-bold py-2 px-4 rounded">Do
+                        Transaction</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-pink-600 text-white py-4 px-8 mt-auto">
+            <div class="container mx-auto text-center">
+                <p>&copy; 2024 Online Banking. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+<script src="../../js/user/viewaccount.js"></script>
+
+
+</html>

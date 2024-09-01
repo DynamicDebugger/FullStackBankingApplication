@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/unity-pay-logo.jpg">
+    <title>The bank UniPay</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <style>
+        /* Additional custom styles */
+        body {
+            background-image: url('./images/01.jpg');
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <div class="min-h-screen flex items-center justify-center">
+        <div class="bg-white p-8 rounded-lg shadow-md w-96">
+            <div class="flex w-full h-full justify-center items-center py-2 mb-4">
+                <img class="rounded-lg shadow-md" src="./images/unity-pay-logo.jpg" width="49" height="50" alt="The Bank UniPay">
+                <h2 class="px-3 text-3xl font-medium text-center mb-4">The bank UniPay</h2>
+            </div>
+            <form method="post" id="loginForm">
+                <div class="mb-4">
+                    <label for="role" class="block mb-1 text-base">Role</label>
+                    <div class="mr-1">
+                        <input type="radio" id="adminRadio" name="role" value="admin" class="mr-2">
+                        <label for="adminRadio" class="mr-4">Admin</label>
+                        <input type="radio" id="userRadio" name="role" value="user" class="mr-2">
+                        <label for="userRadio">User</label>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="username" class="block mb-1">User Name</label>
+                    <input type="text" id="username" name="username"
+                        class="w-full border border-gray-300 rounded-lg px-4 py-2">
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block mb-1">Password</label>
+                    <input type="password" id="password" name="password"
+                        class="w-full border border-gray-300 rounded-lg px-4 py-2">
+                </div>
+                <p id="error" class="error"></p>
+                <button type="submit"
+                    class="transition ease-in-out delay-150 w-full bg-pink-900 hover:translate-y-1 hover:scale-110 hover:bg-pink-600 duration-300 text-white rounded-lg py-2">Login</button>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    <script src="./js/index.js">
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../images/unity-pay-logo.jpg">
+    <title>The bank UniPay</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #ffffff;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            z-index: 2;
+            display: none;
+            /* Initially hide the popup */
+            /* Keep other styles as they are */
+        }
+
+        .popup.show {
+            display: block;
+            /* Show the popup when 'show' class is added */
+        }
+
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Semi-transparent overlay */
+            z-index: 1;
+        }
+
+        /* Blur effect */
+        .blurred-background {
+            filter: blur(5px);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <nav class="bg-pink-500 text-white py-4 px-8 flex justify-between items-center">
+        <div class="w-full flex justify-around">
+            <h1 class="text-2xl font-semibold">Admin Dashboard</h1>
+            <button id="aboutBtn"
+                class="dashboard-btn bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-1.5 rounded">About</button>
+            <button id="createAccountBtn"
+                class="dashboard-btn bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-1.5 rounded">Create
+                Account</button>
+            <button id="viewAllAccountsBtn"
+                class="dashboard-btn bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-1.5 rounded">View
+                Account</button>
+            <button id="deleteAccountByIdBtn"
+                class="dashboard-btn bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-1.5 rounded">Menu</button>
+        </div>
+        <button id="logoutBtn"
+            class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-1.5 rounded">Logout</button>
+    </nav>
+    <div class="container mx-auto py-12">
+        <h1 class="text-3xl font-semibold text-center mb-6">User Account Details</h1>
+        <div class="w-full flex justify-center mb-4">
+            <input type="text" id="searchInput" class="border border-gray-300 px-4 py-2 rounded-md mr-2"
+                placeholder="Search by ID">
+            <button id="searchBtn"
+                class="transition ease-in-out delay-150 bg-pink-600 hover:translate-y-1 hover:scale-110 hover:bg-pink-900 duration-300 text-white rounded-lg font-semibold py-2 px-4 rounded-md">Search</button>
+        </div>
+        <div class="overflow-x-auto w-full">
+            <table class="table-auto border-collapse border border-gray-500 mx-auto">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="border border-gray-500 px-4 py-2">ID</th>
+                        <th class="border border-gray-500 px-4 py-2">Account Holder Name</th>
+                        <th class="border border-gray-500 px-4 py-2">Phone No</th>
+                        <th class="border border-gray-500 px-4 py-2">Account Type</th>
+                        <th class="border border-gray-500 px-4 py-2">Balance</th>
+                        <th class="border border-gray-500 px-4 py-2">Options</th>
+                        <!-- Add more table headers as needed -->
+                    </tr>
+                </thead>
+                <tbody id="accountList"></tbody>
+            </table>
+        </div>
+        <div id="userDetailsPopup" class="popup">
+            <h2 class="popup-heading">ACCOUNT DETAILS</h2>
+            <div class="popup-content" id="userDetailsContent"></div>
+            <button id="closePopupBtn"
+                class="close-btn w-full bg-red-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-600">Close</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../../js/admin/viewaccounts.js"></script>
+</body>
+
+</html>

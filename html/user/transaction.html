@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../images/unity-pay-logo.jpg">
+    <title>The bank UniPay</title>
+    <link rel="stylesheet" href="../../css/user/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+    <!-- Navigation bar -->
+        <nav class="bg-pink-600 text-white py-4 px-8">
+            <div class="container mx-auto flex justify-between items-center">
+                <h1 id="dashboard" class="text-2xl font-semibold">Online Banking</h1>
+                <ul class="flex space-x-4">
+                    <li><a id="accounts" class="hover:bg-pink-900">Accounts</a></li>
+                    <li><a id="history" class="hover:bg-pink-900">View History</a></li>
+                    <li><a id="transfer" class="hover:bg-pink-900">Transactions</a></li>
+                    <!-- Inside the navigation bar -->
+                    <li id="settingsLink" class="relative">
+                        <a href="#" class="hover:bg-pink-900">Settings</a>
+                        <ul id="dropdownMenu"
+                            class="dropdown-menu absolute right-0 mt-2 text-pink-600 bg-white shadow-md rounded-md p-2 hidden">
+                            <li id="profile" onclick="togglepopup()"><a>Profile</a></li>
+                            <li id="logout"><a href="#">Logout</a></li>
+                        </ul>
+                    </li>
+        
+                </ul>
+            </div>
+        </nav>
+
+    <div class="flex justify-center items-center h-screen mt-4">
+        <div class="max-w-lg w-full">
+            <h2 class="text-3xl font-bold mb-8 text-center">Transaction Options</h2>
+
+            <!-- Self Transaction -->
+            <div class="bg-white rounded-lg shadow-md p-6 mb-6 hover:shadow-lg transition duration-300">
+                <h3 class="text-xl font-bold mb-2">Self Transaction</h3>
+                <p class="text-gray-600 mb-4">Transfer money within your own accounts.</p>
+                <button onclick="selfTransaction()"
+                    class="transition ease-in-out delay-150 w-full bg-pink-600 hover:translate-y-1 hover:scale-110 hover:bg-pink-900 duration-300 text-white rounded-lg py-2">Proceed</button>
+            </div>
+
+            <!-- Money Transfer -->
+            <div class="bg-white rounded-lg shadow-md p-6 mb-6 hover:shadow-lg transition duration-300">
+                <h3 class="text-xl font-bold mb-2">Money Transfer</h3>
+                <p class="text-gray-600 mb-4">Transfer money to others.</p>
+                <button id="money-transfer" onclick="moneyTransfer()"
+                    class="transition ease-in-out delay-150 w-full bg-pink-600 hover:translate-y-1 hover:scale-110 hover:bg-pink-900 duration-300 text-white rounded-lg py-2">Proceed</button>
+            </div>
+
+            <!-- View Balance -->
+            <div class="bg-white rounded-lg shadow-md p-6 mb-6 hover:shadow-lg transition duration-300">
+                <h3 class="text-xl font-bold mb-2">View Balance</h3>
+                <p class="text-gray-600 mb-4">Check the balance of your accounts.</p>
+                <button onclick="displayUserDetails()"
+                    class="transition ease-in-out delay-150 w-full bg-pink-600 hover:translate-y-1 hover:scale-110 hover:bg-pink-900 duration-300 text-white rounded-lg py-2">Proceed</button>
+            </div>
+        </div>
+    </div>
+    <!-- Popup Message -->
+    <div id="balancePopup"
+        class="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50 hidden">
+        <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center">
+            <h3 class="text-xl font-bold mb-4">Account Details</h3>
+            <p><strong>Account ID:</strong> <span id="accountId"></span></p>
+            <p><strong>Account Holder Name:</strong> <span id="accountHolderName"></span></p>
+            <p><strong>Balance:</strong> <span id="balance"></span></p>
+            <button onclick="hideBalancePopup()"
+                class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full mt-8">Close</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-pink-600 text-white py-4 px-8 mt-auto">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Online Banking. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="../../js/user/transaction.js"></script>
+</body>
+
+</html>

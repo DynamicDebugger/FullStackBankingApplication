@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../images/unity-pay-logo.jpg">
+    <title>The bank UniPay</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        /* Style the form */
+        #passwordChangeForm {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        #passwordChangeForm input {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        #passwordChangeForm button {
+            width: 100%;
+            padding: 10px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Style the success message */
+        #successMessage {
+            position: absolute;
+            top: -40px;
+            right: -20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: none;
+            animation: fadeInOut 2s ease-out forwards;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* Ensure footer is at the bottom of the page */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+
+        #mismatcherr {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="bg-pink-600 text-white py-4 px-8">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 id="dashboard" class="text-2xl font-semibold">Online Banking</h1>
+            <ul class="flex space-x-4">
+                <li><a id="accounts" class="hover:bg-pink-900">Accounts</a></li>
+                <li><a id="history" class="hover:bg-pink-900">View History</a></li>
+                <li><a id="transfer" class="hover:bg-pink-900">Transactions</a></li>
+                <!-- Inside the navigation bar -->
+                <li id="settingsLink" class="relative">
+                    <a href="#" class="hover:bg-pink-900">Settings</a>
+                    <ul id="dropdownMenu"
+                        class="dropdown-menu absolute right-0 mt-2 text-pink-600 bg-white shadow-md rounded-md p-2 hidden">
+                        <li id="profile" onclick="togglepopup()"><a>Profile</a></li>
+                        <li id="logout"><a href="#">Logout</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- Main content area -->
+    <main class="flex-grow container mx-auto flex justify-center items-center">
+        <!-- Profile details -->
+        <div id="profileDetails" style="background-color: #F3F4F6;"
+            class="w-full bg-pink-600 hover:bg-pink-500 rounded-xl max-w-md px-8 py-8">
+            <h1 class="text-3xl text-center font-bold mb-4">Profile Details</h1>
+            <div>
+                <!-- <p><strong>Username:</strong> <span id="username"></span></p> -->
+                <p><strong>Username:</strong> <span id="accountHolderName"></span></p>
+                <p><strong>Aadhar Number:</strong> <span id="aadharNo"></span></p>
+                <p><strong>Email:</strong> <span id="email"></span></p>
+                <p><strong>DOB:</strong> <span id="dob"></span></p>
+                <p><strong>Phone No:</strong> <span id="phoneno"></span></p>
+                <p><strong>State:</strong> <span id="state"></span></p>
+                <p><strong>City:</strong> <span id="city"></span></p>
+                <p><strong>Locality:</strong> <span id="locality"></span></p>
+                <p><strong>Pincode:</strong> <span id="pincode"></span></p>
+                <p><strong>Account Created At:</strong> <span id="accountcreatedat"></span></p>
+                <button id="changePasswordBtn"
+                    class="bg-pink-700 text-white mt-8 px-4 py-2 rounded hover:bg-pink-600 mx-auto block">Change
+                    Password</button>
+                <!-- Add more profile details here -->
+            </div>
+        </div>
+
+        <!-- Password change form (Initially hidden) -->
+        <div id="passwordChangeForm" style="display: none;" class="w-full max-w-md px-4 py-8 ">
+            <h1 class="text-2xl text-center font-bold">Change Password</h1>
+            <form id="changePasswordForm">
+                <!-- border-solid rounded-lg border border-black -->
+                <p class=" px-2 py-2 mb-1" id="username"></p>
+                <input type="password" id="currentPassword" placeholder="Current Password">
+                <input type="password" id="newPassword" placeholder="New Password">
+                <input type="password" id="confirmPassword" placeholder="Confirm Password">
+                <p id="mismatcherr" class="text-red-500"></p>
+                <button type="submit" class="bg-pink-900 text-white px-4 py-2 rounded hover:bg-pink-600">Change
+                    Password</button>
+            </form>
+            <!-- Success message -->
+            <div id="successMessage">&#10003; Password Changed Successfully</div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-pink-600 text-white py-4 px-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Online Banking. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <!-- Profile script -->
+    <script src="../../js/user/profile.js"></script>
+</body>
+
+</html>

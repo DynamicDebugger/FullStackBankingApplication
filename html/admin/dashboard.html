@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../images/unity-pay-logo.jpg">
+    <title>The bank UniPay</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<style>
+    #app {
+        background-image: url('../../images/04.jpg');
+        width: 100%;
+        height: 100vh;
+    }
+</style>
+
+<body class="">
+    <nav class="bg-pink-500 text-white py-4 px-8 flex justify-between items-center">
+        <div class="w-full flex justify-around">
+            <h1 class="text-2xl font-semibold">Admin Dashboard</h1>
+            <button id="aboutBtn"
+                class="dashboard-btn bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-1.5 rounded">About</button>
+            <button id="createAccountBtn"
+                class="dashboard-btn bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-1.5 rounded">Create
+                Account</button>
+            <button id="viewAllAccountsBtn"
+                class="dashboard-btn bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-1.5 rounded">View
+                Account</button>
+            <button id="deleteAccountByIdBtn"
+                class="dashboard-btn bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-1.5 rounded">Menu</button>
+        </div>
+        <button id="logoutBtn"
+            class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-1.5 rounded">Logout</button>
+    </nav>
+    <!-- <div class="flex my-4 mx-5 justify-between">
+    <div class="px-2 py-2"><img src="../../images/unity-pay-logo.jpg" alt="icon" width="500" height="500">
+    </div>
+    <div class="px-2 py-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora veritatis doloremque praesentium corrupti quam. Odio odit deleniti ab rem nam recusandae, nobis sequi placeat sunt error doloremque quas temporibus sapiente!</div>
+    
+    </div> -->
+    <div id="app" class="bg-pink-500 mx-auto relative top-2/4">
+        <h1 class="text-5xl text-center text-pink-900 py-2 my-2 mb-24">The Bank UniPay</h1>
+
+
+        <div id="product-container" class="relative overflow-hidden">
+            <div id="scrollContainer" class="my-5 flex snap snap-x snap-mandatory">
+                <div class="flex-none flex items-center justify-center snap-start">
+                    <div class="w-screen flex justify-center">
+
+                        <div
+                            class="w-fit bg-white rounded-lg p-6 shadow-md transition-transform duration-300 hover:shadow-lg">
+                            <h4 class="text-xl font-semibold mb-2">Credit Card</h4>
+                            <p>Experience a rewarding journey with Credit card. Apply online and get a FREE Amazon
+                                voucher *</p>
+                            <div class="flex justify-center">
+                                <img src="https://www.yesbank.in/content/published/api/v1.1/assets/CONT4CEF2C8D717046B791E738137181C7B5/native/credit_card_image.webp?channelToken=580bc0ffbe3a47d690505e5f6d06e1c8"
+                                    alt="Experience a rewarding journey with YES BANK Credit Cards. Apply online and get a FREE Amazon voucher*"
+                                    title="Experience a rewarding journey with YES BANK Credit Cards. Apply online and get a FREE Amazon voucher*">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-none flex items-center justify-center snap-start">
+                    <div class="w-screen flex justify-center">
+                        <div
+                            class="w-fit bg-white rounded-lg p-6 shadow-md transition-transform duration-300 hover:shadow-lg">
+                            <h4 class="text-xl font-semibold mb-2">Floating Rate Fixed Deposit</h4>
+                            <p>Book your Floating Rate Fixed Deposit today and enjoy dynamic
+                                returns (Interest rates benchmarked to REPO rate)</p>
+                            <div class="flex justify-center">
+                                <img src="https://www.yesbank.in/content/published/api/v1.1/assets/CONT4685FE1BE5BE47FC910D2CB0735DF4C9/native/fixed-deposit.png?channelToken=580bc0ffbe3a47d690505e5f6d06e1c8"
+                                    alt="Enjoy Dynamic Return On Your Floating Rate Fixed Deposits "
+                                    title="Enjoy Dynamic Return On Your Floating Rate Fixed Deposits ">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-none flex items-center justify-center snap-start">
+                    <div class="w-screen flex justify-center">
+                        <div
+                            class="w-fit bg-white rounded-lg p-6 shadow-md transition-transform duration-300 hover:shadow-lg">
+                            <h4 class="text-xl font-semibold mb-2">Insurance</h4>
+                            <p>Comprehensive Insurance Solutions, Offering you the facility to invest in Life Insurance
+                                and General Insurance.</p>
+                            <div class="flex justify-center">
+                                <img src="https://www.yesbank.in/content/published/api/v1.1/assets/CONTB86F8DF25E2643BCA687749C35CC9854/native/insurance+%281%29.png?channelToken=580bc0ffbe3a47d690505e5f6d06e1c8"
+                                    alt="banking by yes bank" title="banking by yes bank">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-none flex items-center justify-center snap-start">
+                    <div class="w-screen flex justify-center">
+                        <div
+                            class="w-fit bg-white rounded-lg p-6 shadow-md transition-transform duration-300 hover:shadow-lg">
+                            <h4 class="text-xl font-semibold mb-2">Personal Loan</h4>
+                            <p>Avail a loan amount upto <span class="bold">₹40 Lakhs </span>at attractive interest rates
+                                starting at <span class="bold">10.99% p. a.</span>*</p>
+                            <div class="flex justify-center">
+                                <img src="https://www.yesbank.in/content/published/api/v1.1/assets/CONT2BA4189DA326407CA099440BC009F15A/native/personal-loan.png?channelToken=580bc0ffbe3a47d690505e5f6d06e1c8"
+                                    alt="Fulfill Your Personal Needs With Yes Bank Personal Loan "
+                                    title="Fulfill Your Personal Needs With Yes Bank Personal Loan ">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex-none flex items-center justify-center snap-start">
+                    <div class="w-screen flex justify-center">
+                        <div
+                            class="w-fit bg-white rounded-lg p-6 shadow-md transition-transform duration-300 hover:shadow-lg">
+                            <h4 class="text-xl font-semibold mb-2">NRI banking</h4>
+                            <p>Enjoy the carefree moments back home. Earn up to 7.00% p.a.* on YES BANK NRE/NRO Savings
+                                Account</p>
+                            <div class="flex justify-center">
+                                <img src="https://www.yesbank.in/content/published/api/v1.1/assets/CONT68FE2244BA4A4AECAF5BBBEC0CA215B8/native/nri-banking+%281%29.png?channelToken=580bc0ffbe3a47d690505e5f6d06e1c8"
+                                    alt="Now earn Upto 7.00% p.a On Your NRI Savings Bank Account"
+                                    title="Now earn Upto 7.00% p.a On Your NRI Savings Bank Account">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex-none flex items-center justify-center snap-start">
+                    <div class="w-screen flex justify-center">
+                        <div
+                            class="w-fit bg-white rounded-lg p-6 shadow-md transition-transform duration-300 hover:shadow-lg">
+                            <h4 class="text-xl font-semibold mb-2">UNI Family</h4>
+                            <p>Enjoy with the family and leave the banking on us. Avail benefits beyond banking for your family
+                            </p>
+                            <div class="flex justify-center">
+                            <img src="https://www.yesbank.in/content/published/api/v1.1/assets/CONTA171A04B588546D18A93885682E2B767/native/yes-family+%281%29.png?channelToken=580bc0ffbe3a47d690505e5f6d06e1c8"
+                                alt="banking by yes bank" title="banking by yes bank">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex-none flex items-center justify-center snap-start">
+                    <div class="w-screen flex justify-center">
+                        <div
+                            class="w-fit bg-white rounded-lg p-6 shadow-md transition-transform duration-300 hover:shadow-lg">
+                            <h4 class="text-xl font-semibold mb-2">Auto Loan</h4>
+                            <p>Say yes to your big dream. Owning your dream car in now easy. Avail a loan amount upto <span class="bold">₹500</span>
+                            Lakhs
+                            </p>
+                            <div class="flex justify-center">
+                            <img src="https://www.yesbank.in/content/published/api/v1.1/assets/CONTD52AE9CB64134CB6BF472211D3A6DB47/native/auto-loan+%281%29.png?channelToken=580bc0ffbe3a47d690505e5f6d06e1c8"
+                                alt="Fulfill Your Dream To Purchase Card With Auto Loan" title="Fulfill Your Dream To Purchase Card With Auto Loan">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="flex-none flex items-center justify-center snap-start">
+                    <div class="w-screen flex justify-center">
+                        <div class="w-fit bg-white rounded-lg p-6 shadow-md transition-transform duration-300 hover:shadow-lg">
+                            <h4 class="text-xl font-semibold mb-2">Mutual Funds</h4>
+                            <p>UniPay BANK's 3-in-1 account offers you a simple and convenient way to invest in mutual funds both online and offline.
+                            </p>
+                            <div class="flex justify-center">
+                                <img src="https://www.yesbank.in/content/published/api/v1.1/assets/CONTDEB5DF6CCBA045F1864A4DA9A01E8090/native/mutual-funds+%281%29.png?channelToken=580bc0ffbe3a47d690505e5f6d06e1c8" alt="banking by yes bank" title="banking by yes bank">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="scrollLeftBtn"
+            class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white border border-gray-300 rounded-full p-2 shadow-md hover:shadow-lg">
+            &lt;</button>
+        <button id="scrollRightBtn"
+            class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white border border-gray-300 rounded-full p-2 shadow-md hover:shadow-lg">
+            &gt;</button>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="../../js/admin/dashboard.js"></script>
+</body>
+
+</html>

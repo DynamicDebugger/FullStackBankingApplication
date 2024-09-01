@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../images/unity-pay-logo.jpg">
+    <title>The bank UniPay</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 p-8 flex justify-center items-center h-screen">
+    <div class="max-w-md w-full">
+        <h1 class="text-2xl text-center mb-8">Transaction Form</h1>
+        <form id="transactionForm" class="space-y-4">
+            <div class="flex flex-col">
+                <label for="fromAccountId" class="mb-2">From Account ID:</label>
+                <input type="number" id="fromAccountId" name="fromAccountId" required
+                    class="px-4 py-2 rounded-lg border">
+            </div>
+
+            <div class="flex flex-col">
+                <label for="toAccountId" class="mb-2">To Account ID:</label>
+                <input type="number" id="toAccountId" name="toAccountId" required class="px-4 py-2 rounded-lg border">
+            </div>
+
+            <div class="flex flex-col">
+                <label for="amount" class="mb-2">Amount:</label>
+                <input type="number" id="amount" name="amount" required class="px-4 py-2 rounded-lg border">
+            </div>
+
+            <div class="flex flex-col">
+                <label for="description" class="mb-2">Description:</label>
+                <input type="text" id="description" name="description" required class="px-4 py-2 rounded-lg border">
+            </div>
+
+            <div class="flex justify-center">
+                <button type="submit" class="bg-blue-500 text-white px-8 py-2 rounded-lg hover:bg-blue-600 mr-4"
+                    id="transferBtn">Transfer</button>
+                <button type="button" class="bg-gray-500 text-white px-8 py-2 rounded-lg hover:bg-gray-600"
+                    id="cancelBtn">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- OTP Popup Modal -->
+    <div id="otpModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
+        <div class="bg-white p-8 rounded-lg max-w-md">
+            <p class="text-center">OTP is sent to your email address</p>
+            <div id="otpInput" class="flex justify-center mt-4">
+                <input type="text" maxlength="1"
+                    class="otp-box mx-1 text-center w-12 h-12 border border-gray-300 rounded focus:outline-none">
+                <input type="text" maxlength="1"
+                    class="otp-box mx-1 text-center w-12 h-12 border border-gray-300 rounded focus:outline-none">
+                <input type="text" maxlength="1"
+                    class="otp-box mx-1 text-center w-12 h-12 border border-gray-300 rounded focus:outline-none">
+                <input type="text" maxlength="1"
+                    class="otp-box mx-1 text-center w-12 h-12 border border-gray-300 rounded focus:outline-none">
+                <input type="text" maxlength="1"
+                    class="otp-box mx-1 text-center w-12 h-12 border border-gray-300 rounded focus:outline-none">
+                <input type="text" maxlength="1"
+                    class="otp-box mx-1 text-center w-12 h-12 border border-gray-300 rounded focus:outline-none">
+            </div>
+            <div class="flex justify-center mt-4">
+                <button id="verifyOtpBtn"
+                    class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 mr-4">Verify OTP</button>
+                <button id="resendOtpBtn" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Resend
+                    OTP</button>
+            </div>
+            <div id="timer" class="text-center text-red-500 font-bold mt-4"></div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="../../js/user/moneytransfer.js"></script>
+
+</body>
+
+</html>

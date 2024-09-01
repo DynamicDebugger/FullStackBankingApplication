@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Line Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <canvas id="lineChart" width="800" height="400"></canvas>
+    <script>
+        // Step 1: Prepare the Data
+        const rawData = [
+            ["027e3f48-bc74-49ba-bba6-0b501fb48b72", 10, "hehe", 6, "Completed", 2, "2024-05-01 22:30:19.117"],
+            ["25fa6fdb-905f-4a2e-ab16-b7be33788860", 100, "bill", 6, "Completed", 2, "2024-05-01 22:35:20.885"],
+            // More data...
+        ];
+
+        // Step 2: Filter Data for a Specific Account
+        const accountId = "027e3f48-bc74-49ba-bba6-0b501fb48b72";
+        const accountData = rawData.filter(entry => entry[0] === accountId);
+
+        // Step 3: Extract Relevant Data for the Chart
+        const dates = accountData.map(entry => new Date(entry[6]));
+        const amounts = accountData.map(entry => entry[1]);
+
+        // Step 4: Create a Line Chart
+        const ctx = document.getElementById('lineChart').getContext('2d');
+        const lineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: dates,
+                datasets: [{
+                    label: 'Amount',
+                    data: amounts,
+                    borderColor: 'blue',
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'time',
+                        time: {
+                            unit: 'day'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
